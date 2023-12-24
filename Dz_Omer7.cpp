@@ -1,10 +1,9 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int main() {
-    vector<string> n;
+    string n;
     string a1[] = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
     string a1X[] = {"", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
     string a10[] = {"", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
@@ -20,26 +19,21 @@ int main() {
 
     while (m > 0) {
         if (m >= 100) {
-            n.push_back(a100[m/100]);
+            n += a100[m / 100] + " ";
             m %= 100;
-        }
-        else if (m >= 20) {
-            n.push_back(a10[m / 10]);
+        } else if (m >= 20) {
+            n += a10[m / 10] + " ";
             m %= 10;
-        }
-        else if (m >= 10) {
-            n.push_back(a1X[m % 10]);
+        } else if (m >= 10) {
+            n += a1X[m % 10] + " ";
             break;
-        }
-        else {
-            n.push_back(a1[m]);
+        } else {
+            n += a1[m] + " ";
             break;
         }
     }
 
-    for (int i = 0; i <= n.size()-1; i++) {
-        cout << n[i] << " ";
-    }
+    cout << n;
 
     return 0;
 }
